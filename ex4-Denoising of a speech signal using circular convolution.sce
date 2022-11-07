@@ -1,0 +1,21 @@
+clc;
+[x fs]=wavread("D:\Sem5\DTSP\ex4\helo.wav")
+no=0.075*rand(1,length(x(1,:)),"normal")
+xn=x(1,:)+ no
+subplot(3,1,1)
+plot(x(1,1500:3000))
+xtitle('Original signal')
+xlabel('Number of samples')
+ylabel('Amplitude')
+subplot(3,1,2)
+plot(xn(1,1500:3000))
+xtitle('Noisy signal')
+xlabel('Number of samples')
+ylabel('Amplitude')
+h=ones(1,64)/64
+y=conv(xn,h)
+subplot(3,1,3)
+plot(y(1,1500:3000))
+xtitle('Denoised signal')
+xlabel('Number of samples')
+ylabel('Amplitude')
